@@ -52,7 +52,7 @@ Route::group(['middleware' => ['web']], function () {
     // USER SIDE
     Route::group(
         [
-            // 'middleware' => ['role.admin'],
+            'middleware' => ['auth:sanctum'],
             'prefix' => '/',
         ],
         function () {

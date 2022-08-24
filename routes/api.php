@@ -19,24 +19,16 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 // AUTH
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
-
-Route::post('/user', [UserController::class, 'store']);
-
-
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
     // USER
     Route::get('/user', [UserController::class, 'index']);
-
+    Route::post('/user', [UserController::class, 'store']);
     Route::get('/user/{id}', [UserController::class, 'show']);
     Route::put('/user/{id}', [UserController::class, 'update']);
     Route::delete('/user/destroy/{id}', [UserController::class, 'destroy']);

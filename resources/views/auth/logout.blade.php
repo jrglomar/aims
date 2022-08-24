@@ -1,19 +1,20 @@
-@extends('layouts.login')
+@extends('layouts.app_login')
 
 @section('content')
-
+    {{-- FORM --}}
+    {{-- @include('auth/login_form') --}}
 @endsection
 
 @section('script')
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             // GLOBAL VARIABLE
             var APP_URL = {!! json_encode(url('/')) !!}
             var API_TOKEN = localStorage.getItem("API_TOKEN")
             // END OF GLOBAL VARIABLE
 
-            function logout(){
-                var form_url = APP_URL+'/api/v1/logout/'
+            function logout() {
+                var form_url = APP_URL + '/api/v1/logout/'
 
                 // ajax opening tag
                 $.ajax({
@@ -24,18 +25,22 @@
                         "Authorization": API_TOKEN,
                         "Content-Type": "application/json"
                     },
-                    success: function(data){
+                    success: function(data) {
                         localStorage.removeItem('API_TOKEN');
                         localStorage.removeItem('USER_DATA');
-                        window.location.href = APP_URL+'/login';
+                        notification('custom', 'Logout Success')
+                        setInterval(function() {
+                            window.location.href = APP_URL + '/login';
+                        }, 1500)
                     },
-                    error: function(error){
+                    error: function(error) {
                         console.log(error)
-                        console.log(`message: ${error.responseJSON.message}`)
-                        console.log(`status: ${error.status}`)
-                        window.location.href = APP_URL+'/login';
+                        notification('custom', 'Logout Success')
+                        setInterval(function() {
+                            window.location.href = APP_URL + '/login';
+                        }, 1500)
                     }
-                // ajax closing tag
+                    // ajax closing tag
                 })
             }
 
