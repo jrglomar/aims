@@ -33,13 +33,17 @@
                 },
                 success: function(data) {
                     console.log(data)
+                    localStorage.setItem('API_TOKEN', data.token);
+                    localStorage.setItem('USER_DATA', JSON.stringify(data.user));
 
-                    if (data.user.role_id == null) {
+
+                    if (data.user.role == 'User') {
                         notification('custom', 'Login Success')
                         setInterval(function() {
                             window.location.href = APP_URL + "/home"
                         }, 1500)
-                    } else if (data.user.role_id.title == 'Admin') {
+                    } else if (data.user.role == 'Admin') {
+                        notification('custom', 'Login as Admin Success')
                         setInterval(function() {
                             window.location.href = APP_URL + "/admin/dashboard"
                         }, 1500)

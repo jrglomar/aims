@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +13,14 @@
     {{-- MAIN CSS LINKS --}}
     @include('layouts.css_includes')
 
-    
+
 </head>
+
 <body class="hold-transition login-page" style="height: 100vh !important">
-    
-        <section class="section">
-            @yield('content')
-        </section>
+
+    <section class="section">
+        @yield('content')
+    </section>
 
     {{-- MAIN SCRIPTS --}}
     @include('layouts.scripts_includes')
@@ -27,4 +29,5 @@
     <!-- PAGE SCRIPTS -->
     @yield('script')
 </body>
+
 </html>

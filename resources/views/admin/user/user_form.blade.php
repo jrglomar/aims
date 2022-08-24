@@ -6,29 +6,29 @@
                 <h4> <span id="create_card_title">New</span> {{ $page_title }}</h4>
             </div>
 
-            <form id="createForm" data-parsley-validate>
+            <form id="registerForm" data-parsley-validate>
                 <div class="card-body">
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="required-input">Email</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email"
                                 tabindex="1" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <label class="required-input">First Name</label>
-                            <input type="first_name" class="form-control" id="first_name" name="first_name"
+                            <input type="text" class="form-control" id="first_name" name="first_name"
                                 placeholder="First Name" tabindex="1" required>
                         </div>
-                        <div class="form-group col-md-4">
+                        {{-- <div class="form-group col-md-4">
                             <label class="required-input">Middle Name</label>
-                            <input type="middle_name" class="form-control" id="middle_name" name="middle_name"
-                                placeholder="First Name" tabindex="1">
-                        </div>
-                        <div class="form-group col-md-4">
+                            <input type="text" class="form-control" id="middle_name" name="middle_name"
+                                placeholder="Middle Name" tabindex="1">
+                        </div> --}}
+                        <div class="form-group col-md-6">
                             <label class="required-input">Last Name</label>
-                            <input type="last_name" class="form-control" id="last_name" name="last_name"
+                            <input type="text" class="form-control" id="last_name" name="last_name"
                                 placeholder="Last Name" tabindex="1" required>
                         </div>
                     </div>

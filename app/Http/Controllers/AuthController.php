@@ -10,20 +10,20 @@ use Illuminate\Support\Facades\Auth;
 
 
 class AuthController extends Controller
-{   
-    public function register(Request $request){
+{
+    public function register(Request $request)
+    {
         $fields = $request->validate([
             'email' => 'required|string|unique:users,email',
             'first_name' => 'required',
-            'middle_name',
             'last_name' => 'required',
             'password' => 'required|string|confirmed'
         ]);
 
+
         $user = User::create([
             'email' => $fields['email'],
             'first_name' => $fields['first_name'],
-            'middle_name' => $fields['first_name'],
             'last_name' => $fields['last_name'],
             'password' => bcrypt($fields['password'])
         ]);
@@ -38,14 +38,15 @@ class AuthController extends Controller
         return response($response, 201);
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $fields = $request->validate([
             'email' => 'required|string',
             'password' => 'required|string'
         ]);
 
 
-        if( !Auth::attempt( $fields )){
+        if (!Auth::attempt($fields)) {
             return response([
                 'message' => 'Login failed.'
             ], 401);
@@ -61,7 +62,8 @@ class AuthController extends Controller
         return response($response, 201);
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         auth()->user()->tokens()->delete();
 
         auth('web')->logout();

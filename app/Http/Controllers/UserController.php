@@ -45,9 +45,9 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $user, $id)
     {
-        //
+        return User::find($id);
     }
 
     /**
@@ -56,9 +56,9 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(User $user, $id)
     {
-        //
+        return User::find($id);
     }
 
     /**
@@ -68,9 +68,12 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, $id)
     {
-        //
+        $user = User::find($id);
+        $user->update($request->all());
+
+        return $user;
     }
 
     /**
@@ -79,8 +82,12 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $user, $id)
     {
-        //
+        //if the model soft deleted
+        $user = User::find($id);
+
+        $user->delete();
+        return $user;
     }
 }

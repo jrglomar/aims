@@ -39,3 +39,5 @@
 <link rel="stylesheet" href="{{ asset('vendors/select2/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('vendors/datatable/css/datatables.min.css') }}">
 <link rel="stylesheet" href="{{ asset('vendors/parsley/css/custom-parsley.css') }}">
+
+

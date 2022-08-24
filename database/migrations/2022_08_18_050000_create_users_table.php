@@ -30,11 +30,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('first_name')->nullable();
-            $table->string('middle_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->string('role')->default('User');
 
             // RELATIONSHIP ATTR
-            $table->foreignId('role_id')->nullable()->constrained('roles')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreignId('role_id')->nullable()->constrained('roles')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

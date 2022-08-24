@@ -24,13 +24,22 @@
                                 <th>Email</th>
                                 <th>Name</th>
                                 <th>Role</th>
-                                <th>Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Created at</th>
+                                <th>Email</th>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>

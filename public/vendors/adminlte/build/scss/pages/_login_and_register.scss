@@ -51,8 +51,8 @@
       &:focus {
         box-shadow: none;
 
-        ~ .input-group-prepend .input-group-text,
-        ~ .input-group-append .input-group-text {
+        ~.input-group-prepend .input-group-text,
+        ~.input-group-append .input-group-text {
           border-color: $input-focus-border-color;
         }
       }
@@ -62,8 +62,8 @@
           box-shadow: none;
         }
 
-        ~ .input-group-prepend .input-group-text,
-        ~ .input-group-append .input-group-text {
+        ~.input-group-prepend .input-group-text,
+        ~.input-group-append .input-group-text {
           border-color: $success;
         }
       }
@@ -73,7 +73,7 @@
           box-shadow: none;
         }
 
-        ~ .input-group-append .input-group-text {
+        ~.input-group-append .input-group-text {
           border-color: $danger;
         }
       }
@@ -102,12 +102,14 @@
 }
 
 @include dark-mode () {
+
   .login-card-body,
   .register-card-body {
     background-color: $dark;
     border-color: $gray-600;
     color: $white;
   }
+
   .login-logo,
   .register-logo {
     a {

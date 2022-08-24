@@ -6,7 +6,7 @@
         var API_TOKEN = localStorage.getItem("API_TOKEN")
         var IS_LOGGED_IN = "{{ Auth::check() }}"
 
-        // Login function
+        // Register function
         $('#registerForm').on('submit', function(e) {
             e.preventDefault()
 
@@ -38,8 +38,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href = APP_URL + "/login"
-                        }
-                        else{
+                        } else {
                             window.location.href = APP_URL + "/login"
                         }
                     })
@@ -57,7 +56,7 @@
                 // ajax closing tag
             })
         });
-        // login closing tag
+        // Register closing tag
 
     });
 </script>

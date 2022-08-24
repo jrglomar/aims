@@ -1,3 +1,12 @@
+<style>
+.sidebar-custom{
+    display: inherit;
+    position: absolute;
+    width: 93%;
+    bottom: 10px;
+}
+</style>
+
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -59,9 +68,17 @@
                     </a>
                 </li>
 
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
+
+        <div class="sidebar-custom">
+            <button type="button" class="btn btn-danger btn-block btn-icon-split logout-btn"
+                onclick="location.href = '{{ env('APP_URL') . '/logout' }}'" name="logout_btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
     </div>
     <!-- /.sidebar -->
 </aside>

@@ -17,6 +17,9 @@
 {{-- CONTENT --}}
 @section('content')
     {{-- FORM --}}
+    @include('admin/user/user_modal')
+
+    {{-- FORM --}}
     @include('admin/user/user_form')
 
     {{-- DATATABLE --}}
