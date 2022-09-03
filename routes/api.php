@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 // CONTROLLERS
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\InquiryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\UserController;
 */
 
 // AUTH
+Route::get('/user/search/{email}', [UserController::class, 'search']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
@@ -33,4 +35,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('/user/{id}', [UserController::class, 'update']);
     Route::delete('/user/destroy/{id}', [UserController::class, 'destroy']);
     Route::put('/user/restore/{id}', [UserController::class, 'restore']);
+
+    // INQUIRY
+    Route::get('/inquiry', [InquiryController::class, 'index']);
+    Route::post('/inquiry', [InquiryController::class, 'store']);
+    Route::get('/inquiry/{id}', [InquiryController::class, 'show']);
+    Route::put('/inquiry/{id}', [InquiryController::class, 'update']);
+    Route::delete('/inquiry/destroy/{id}', [InquiryController::class, 'destroy']);
+    Route::put('/inquiry/restore/{id}', [InquiryController::class, 'restore']);
 });

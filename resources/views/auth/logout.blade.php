@@ -9,12 +9,15 @@
     <script>
         $(document).ready(function() {
             // GLOBAL VARIABLE
-            var APP_URL = {!! json_encode(url('/')) !!}
+            var APP_URL = "{{ env('APP_URL') }}"
+            var API_URL = "{{ env('API_URL') }}"
             var API_TOKEN = localStorage.getItem("API_TOKEN")
+            var IS_LOGGED_IN = "{{ Auth::check() }}"
+
             // END OF GLOBAL VARIABLE
 
             function logout() {
-                var form_url = APP_URL + '/api/v1/logout/'
+                var form_url = API_URL + '/logout'
 
                 // ajax opening tag
                 $.ajax({
@@ -23,7 +26,8 @@
                     headers: {
                         "Accept": "application/json",
                         "Authorization": API_TOKEN,
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(data) {
                         localStorage.removeItem('API_TOKEN');

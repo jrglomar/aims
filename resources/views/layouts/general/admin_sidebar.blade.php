@@ -67,6 +67,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/admin/inquiry" class="{{ Request::segment(2) == 'inquiry' ? 'nav-link active' : 'nav-link' }}">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Inquiry
+                        </p>
+                    </a>
+                </li>
 
 
             </ul>

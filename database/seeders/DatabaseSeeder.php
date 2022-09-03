@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'Account',
             'role' => 'Admin',
+            'status' => 'Active',
             'password' => Hash::make('User01'),
             'created_at' => '2022-08-24 16:33:33',
             'updated_at' => '2022-08-24 16:33:33'

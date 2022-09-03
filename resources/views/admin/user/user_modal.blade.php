@@ -18,7 +18,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label class="required-input">Role</label>
-                                <select class="form-control"  id="role_edit" name="role_edit">
+                                <select class="form-control" id="role_edit" name="role_edit">
                                     <option value="User">User</option>
                                     <option value="Admin">Admin</option>
                                 </select>
@@ -39,6 +39,15 @@
                                 <label class="required-input">Last Name</label>
                                 <input type="text" class="form-control" id="last_name_edit" name="last_name_edit"
                                     placeholder="Last Name" tabindex="1" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label class="required-input">Status</label>
+                                <select class="form-control" id="status_edit" name="status_edit">
+                                    <option value="Inactive">Inactive</option>
+                                    <option value="Active">Active</option>
+                                </select>
                             </div>
                         </div>
                     </div>

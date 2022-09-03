@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//-------------AUTH----------------//
+
+
+Route::get('/logout', function () {
+    return view('auth/logout', ['page_title' => 'Logout']);
+})->name('logout');
+
 Route::group(['middleware' => ['web']], function () {
 
-    //-------------AUTH----------------//
     Route::get('/login', function () {
         return view('auth/login', ['page_title' => 'Login']);
     })->name('login');
@@ -24,15 +30,10 @@ Route::group(['middleware' => ['web']], function () {
         return view('auth/register', ['page_title' => 'Register']);
     })->name('register');
 
-    Route::get('/logout', function () {
-        return view('auth/logout', ['page_title' => 'Logout']);
-    })->name('logout');
-
-
     // ADMIN SIDE
     Route::group(
         [
-            // 'middleware' => ['role.admin'],
+            'middleware' => ['auth:sanctum', 'role.admin'],
             'prefix' => '/admin',
         ],
         function () {
@@ -43,8 +44,13 @@ Route::group(['middleware' => ['web']], function () {
 
             // ------------USER--------------- //
             Route::get('/user', function () {
-                return view('admin/user/user', ['page_title' => 'User']);
+                return view('admin/user/user', ['page_title' => 'Users']);
             })->name('admin_user');
+
+            // ------------INQUIRY--------------- //
+            Route::get('/inquiry', function () {
+                return view('admin/inquiry/inquiry', ['page_title' => 'Inquries']);
+            })->name('admin_inquiry');
         }
     );
 

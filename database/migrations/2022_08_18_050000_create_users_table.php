@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('role')->default('User');
+            $table->string('status')->default('Inactive');
 
             // RELATIONSHIP ATTR
             // $table->foreignId('role_id')->nullable()->constrained('roles')->onDelete('cascade')->onUpdate('cascade');

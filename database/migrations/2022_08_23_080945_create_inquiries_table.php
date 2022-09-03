@@ -22,7 +22,9 @@ class CreateInquiriesTable extends Migration
 
             // ADDED ATTR
             $table->string('title')->unique();
-            $table->string('desciption')->nullable();
+            $table->text('description')->nullable();
+            $table->text('remarks')->nullable();
+            $table->text('status')->nullable()->default('Pending');
 
             // RELATIONSHIP ATTR
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade')->onUpdate('cascade');

@@ -21,9 +21,10 @@
                             <tr class="bg-info text-light">
                                 <th>ID</th>
                                 <th>Created at</th>
-                                <th>Email</th>
-                                <th>Name</th>
-                                <th>Role</th>
+                                <th>Title</th>
+                                <th>Message</th>
+                                <th>Remarks</th>
+                                <th>Remarked by</th>
                                 <th>Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -35,9 +36,10 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Created at</th>
-                                <th>Email</th>
-                                <th>Name</th>
-                                <th>Role</th>
+                                <th>Title</th>
+                                <th>Message</th>
+                                <th>Remarks</th>
+                                <th>Remarked by</th>
                                 <th>Status</th>
                                 <th class="text-center">Action</th>
                             </tr>

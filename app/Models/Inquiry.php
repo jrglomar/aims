@@ -18,14 +18,24 @@ class Inquiry extends Model
         'description',
         'user_id',
         'admin_id',
+        'remarks',
+        'status'
     ];
 
     // DATES
     protected $dates = ['deleted_at'];
 
     // RELATIONSHIP
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
+    public function admin()
+    {
+        return $this->belongsTo(User::class, 'admin_id');
+    }
 
     // AUTO LOADING RELATIONSHIP
-    protected $with = [];
+    protected $with = ['user', 'admin'];
 }

@@ -15,6 +15,7 @@ class InquiryController extends Controller
     public function index()
     {
         //
+        return Inquiry::all();
     }
 
     /**
@@ -22,9 +23,15 @@ class InquiryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+        return Inquiry::create($request->all());
     }
 
     /**
@@ -36,6 +43,13 @@ class InquiryController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+        
+        return Inquiry::create($request->all());
     }
 
     /**
@@ -44,9 +58,10 @@ class InquiryController extends Controller
      * @param  \App\Models\Inquiry  $inquiry
      * @return \Illuminate\Http\Response
      */
-    public function show(Inquiry $inquiry)
+    public function show(Inquiry $inquiry, $id)
     {
         //
+        return Inquiry::find($id);
     }
 
     /**
@@ -67,9 +82,13 @@ class InquiryController extends Controller
      * @param  \App\Models\Inquiry  $inquiry
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inquiry $inquiry)
+    public function update(Request $request, Inquiry $inquiry, $id)
     {
         //
+        $inquiry = Inquiry::find($id);
+        $inquiry->update($request->all());
+
+        return $inquiry;
     }
 
     /**
@@ -78,8 +97,12 @@ class InquiryController extends Controller
      * @param  \App\Models\Inquiry  $inquiry
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inquiry $inquiry)
+    public function destroy(Inquiry $inquiry, $id)
     {
-        //
+        //if the model soft deleted
+        $inquiry = Inquiry::find($id);
+
+        $inquiry->delete();
+        return $inquiry;
     }
 }

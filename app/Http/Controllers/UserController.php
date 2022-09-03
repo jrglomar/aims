@@ -90,4 +90,9 @@ class UserController extends Controller
         $user->delete();
         return $user;
     }
+
+    public function search($email)
+    {
+        return User::where('email', 'like', '%'.$email.'%')->get();
+    }
 }
