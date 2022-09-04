@@ -66,6 +66,11 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('/home', function () {
                 return view('user/home/home', ['page_title' => 'Home']);
             })->name('user_home');
+
+            // ------------HOME--------------- //
+            Route::get('/services/inquiry', function () {
+                return view('user/inquiry/inquiry', ['page_title' => 'Inquiries']);
+            })->name('user_inquiry');
         }
     );
 });
