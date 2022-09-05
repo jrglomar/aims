@@ -9,7 +9,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <title>AIMS</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{{ asset('/vendors/sbf/dist/assets/favicon.ico') }}" />
@@ -35,7 +35,7 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/services/inquiry">Services</a></li>
                 </ul>
             </div>
         </div>
@@ -178,16 +178,17 @@
                     <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                         <!-- Name input-->
                         <div class="form-floating mb-3">
+                            <label for="title">Title</label>
                             <input class="form-control" id="title" type="text" placeholder="Enter title..."
                                 data-sb-validations="required" />
-                            <label for="title">Title</label>
                             <div class="invalid-feedback" data-sb-feedback="title:required">A title is required.</div>
                         </div>
                         <div class="form-floating mb-3">
+                            <label for="description">Message</label>
                             <textarea class="form-control" id="description" type="text" placeholder="Enter your message here..."
                                 style="height: 10rem" data-sb-validations="required"></textarea>
-                            <label for="description">Message</label>
-                            <div class="invalid-feedback" data-sb-feedback="description:required">A message is required.
+                            <div class="invalid-feedback" data-sb-feedback="description:required">A message is
+                                required.
                             </div>
                         </div>
                         <!-- Submit success message-->

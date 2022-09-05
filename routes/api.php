@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/inquiry', [InquiryController::class, 'index']);
     Route::post('/inquiry', [InquiryController::class, 'store']);
     Route::get('/inquiry/{id}', [InquiryController::class, 'show']);
+    Route::get('/inquiry/show_user/{id}', [InquiryController::class, 'show_user']);
     Route::put('/inquiry/{id}', [InquiryController::class, 'update']);
     Route::delete('/inquiry/destroy/{id}', [InquiryController::class, 'destroy']);
     Route::put('/inquiry/restore/{id}', [InquiryController::class, 'restore']);

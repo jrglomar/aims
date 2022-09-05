@@ -48,7 +48,7 @@ class InquiryController extends Controller
             'description' => 'required'
         ]);
 
-        
+
         return Inquiry::create($request->all());
     }
 
@@ -62,6 +62,14 @@ class InquiryController extends Controller
     {
         //
         return Inquiry::find($id);
+    }
+
+    public function show_user(Inquiry $inquiry, $id)
+    {
+        //
+        return Inquiry::select("*")
+        ->where("user_id", $id)
+        ->get();
     }
 
     /**
