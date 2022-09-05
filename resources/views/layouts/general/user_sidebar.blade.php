@@ -10,7 +10,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/admin/dashboard" class="brand-link">
+    <a href="/user/dashboard" class="brand-link">
 
         <img src="{{ asset('vendors/adminlte/dist/img/laravel-svg.png') }}" alt="Laravel Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -26,7 +26,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="/admin/dashboard" class="d-block"> Admin Raven</a>
+                <a href="/services/dashboard" class="d-block"> Admin Raven</a>
             </div>
         </div>
 
@@ -51,7 +51,7 @@
                with font-awesome or any other icon font library -->
 
                 <li class="{{ Request::segment(2) == 'dashboard' ? 'nav-item active' : 'nav-item' }}">
-                    <a href="/admin/dashboard"
+                    <a href="/services/dashboard"
                         class="{{ Request::segment(2) == 'dashboard' ? 'nav-link active' : 'nav-link' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -60,7 +60,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/inquiry" class="{{ Request::segment(2) == 'inquiry'
+                    <a href="/services/inquiry" class="{{ Request::segment(2) == 'inquiry'
                         ? 'nav-link active' : 'nav-link' }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p>

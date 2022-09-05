@@ -11,15 +11,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- MAIN CSS LINKS --}}
-    @include('layouts.css_includes')
-
+    @include('layouts.login_css_includes')
 
 </head>
 
-<body class="hold-transition login-page" style="height: 100vh !important">
+<body class="hold-transition login-page login-bg">
 
     <section class="section">
-        @yield('content')
+        <div class="custom-content">
+            @yield('content')
+
+        </div>
     </section>
 
     {{-- MAIN SCRIPTS --}}

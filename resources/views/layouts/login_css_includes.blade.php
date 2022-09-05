@@ -1,3 +1,10 @@
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="{{ asset('/vendors/sbf/dist/assets/favicon.ico') }}" />
+<!-- Bootstrap icons-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="{{ asset('/vendors/sbf/dist/css/styles.css') }}" rel="stylesheet" />
+
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 <!-- Ionicons -->
@@ -40,5 +47,3 @@
 <link rel="stylesheet" href="{{ asset('vendors/select2/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('vendors/datatable/css/datatables.min.css') }}">
 <link rel="stylesheet" href="{{ asset('vendors/parsley/css/custom-parsley.css') }}">
-
-

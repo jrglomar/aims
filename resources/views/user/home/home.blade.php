@@ -26,7 +26,10 @@
     <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-info">
         <div class="container px-5">
-            <a class="navbar-brand" href="#!">AIMS</a>
+            <a class="navbar-brand" href="#!">
+                <img src="{{ asset('/images/schoolLogo.png') }}" width="50" height="50"> <span
+                    style="padding-left: 5px">AIMS</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -36,22 +39,23 @@
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="/services/inquiry">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Header-->
-    <header class="bg-info py-5"">
+    <header class="bg-custom py-5"">
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-6">
                     <div class="text-center my-5">
                         <h1 class="display-5 fw-bolder text-white mb-2">ASSETS INVENTORY MONITORING SYSTEM </h1>
-                        <p class="text-white mb-4"> Assets Inventory System was developed in the Mayamot National High
+                        <p class="text-dark mb-4"> Assets Inventory System was developed in the Mayamot National High
                             School to speed up the counting and monitoring system. </p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                             <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                            <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
+                            <a class="btn btn-outline-light btn-lg px-4 text-dark" href="#!">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -61,40 +65,28 @@
     <!-- Features section-->
     <section class="py-5 border-bottom" id="features">
         <div class="container px-5 my-5">
-            <div class="row gx-5">
-                <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="row justify-content-center gx-5 text-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="feature bg-info bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i>
                     </div>
-                    <h2 class="h4 fw-bolder">Featured title</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another
-                        sentence and probably just keep going until we run out of words.</p>
-                    <a class="text-decoration-none" href="#!">
-                        Call to action
+                    <h2 class="h4 fw-bolder">Inquiry Service</h2>
+                    <p>This feature is made for users so they can communicate with the admins and ask for the information they need. </p>
+                    <a class="text-decoration-none" href="#contact">
+                        View
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
-                <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="feature bg-info bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i>
                     </div>
-                    <h2 class="h4 fw-bolder">Featured title</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another
-                        sentence and probably just keep going until we run out of words.</p>
+                    <h2 class="h4 fw-bolder">Assets Viewing</h2>
+                    <p>...</p>
                     <a class="text-decoration-none" href="#!">
-                        Call to action
+                        View
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="feature bg-info bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i>
-                    </div>
-                    <h2 class="h4 fw-bolder">Featured title</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another
-                        sentence and probably just keep going until we run out of words.</p>
-                    <a class="text-decoration-none" href="#!">
-                        Call to action
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -133,24 +125,40 @@
     <!-- School section-->
     <section class="py-5 border-bottom">
         <div class="container px-5 my-5 px-5">
-            <div class="text-center mb-5">
-                <h2 class="fw-bolder">School</h2>
-                <p class="lead mb-0">Mayamot National High school</p><br>
-                <img src="{{ asset('/vendors/sbf/dist/assets/school_logo.jpg') }}" width="150px" height="150px">
-            </div>
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-6">
-                    <!-- Testimonial 1-->
-                    <div class="card mb-4">
-                        <div class="card-body p-4">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0"><i class="bi bi-geo-alt-fill text-primary fs-1"></i></div>
-                                <div class="ms-4">
-                                    <p class="mb-1">Location</p>
-                                    <div class="small text-muted">Address: #18 Rose Street, Newtown 1-A Greenheights
-                                        Subdivision, Baranggay Mayamot, 1870 Antipolo, Philippines </div>
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bolder">School</h2>
+                        <p class="lead mb-0">Mayamot National High school</p><br>
+                        <img src="{{ asset('/vendors/sbf/dist/assets/school_logo.jpg') }}" width="150px"
+                            height="150px">
+                    </div>
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-12">
+                            <!-- Testimonial 1-->
+                            <div class="card mb-4">
+                                <div class="card-body p-4">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0"><i
+                                                class="bi bi-geo-alt-fill text-primary fs-1"></i>
+                                        </div>
+                                        <div class="ms-4">
+                                            <p class="mb-1">Location</p>
+                                            <div class="small text-muted">Address: #18 Rose Street, Newtown 1-A
+                                                Greenheights
+                                                Subdivision, Baranggay Mayamot, 1870 Antipolo, Philippines </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <!-- Testimonial 1-->
+                            <img class="school-image" src="{{ asset('/images/actualFront.jpg') }}">
                         </div>
                     </div>
                 </div>
@@ -178,15 +186,17 @@
                     <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <label for="title">Title</label>
                             <input class="form-control" id="title" type="text" placeholder="Enter title..."
                                 data-sb-validations="required" />
+                            <label for="title">Title</label>
+
                             <div class="invalid-feedback" data-sb-feedback="title:required">A title is required.</div>
                         </div>
                         <div class="form-floating mb-3">
-                            <label for="description">Message</label>
                             <textarea class="form-control" id="description" type="text" placeholder="Enter your message here..."
                                 style="height: 10rem" data-sb-validations="required"></textarea>
+                            <label for="description">Message</label>
+
                             <div class="invalid-feedback" data-sb-feedback="description:required">A message is
                                 required.
                             </div>
@@ -198,6 +208,7 @@
                         <div class="d-none" id="submitSuccessMessage">
                             <div class="text-center mb-3">
                                 <div class="fw-bolder">Form submission successful!</div>
+                                <button id="viewInquiry" class="btn btn-success">View your inquiries</button>
                             </div>
                         </div>
                         <!-- Submit error message-->

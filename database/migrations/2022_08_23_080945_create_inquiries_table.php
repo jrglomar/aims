@@ -21,7 +21,7 @@ class CreateInquiriesTable extends Migration
             $table->softDeletes();
 
             // ADDED ATTR
-            $table->string('title')->unique();
+            $table->string('title');
             $table->text('description')->nullable();
             $table->text('remarks')->nullable();
             $table->text('status')->nullable()->default('Pending');

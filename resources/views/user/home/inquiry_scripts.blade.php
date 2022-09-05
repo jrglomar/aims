@@ -9,6 +9,10 @@
 
         console.log(USER_DATA)
 
+        $('#viewInquiry').on('click', function(e){
+            e.preventDefault()
+            window.location.href = APP_URL + "/services/inquiry"
+        })
 
         $('#submitButton').on('click', function(e) {
 

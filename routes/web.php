@@ -70,7 +70,12 @@ Route::group(['middleware' => ['web']], function () {
                 return view('user/home/home', ['page_title' => 'Home']);
             })->name('user_home');
 
-            // ------------HOME--------------- //
+            // ------------DASHBOARD--------------- //
+            Route::get('/services/dashboard', function () {
+                return view('user/dashboard/dashboard', ['page_title' => 'Dashboard']);
+            })->name('user_dashboard');
+
+            // ------------INQUIRY--------------- //
             Route::get('/services/inquiry', function () {
                 return view('user/inquiry/inquiry', ['page_title' => 'Inquiries']);
             })->name('user_inquiry');

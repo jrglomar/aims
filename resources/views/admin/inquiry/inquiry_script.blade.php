@@ -29,6 +29,12 @@
                         data: "created_at"
                     },
                     {
+                        data: "user_id",
+                        render: function(data, type, row) {
+                            return `${row.user.first_name} ${row.user.last_name} - ${row.user.email}`
+                        }
+                    },
+                    {
                         data: "title"
                     },
                     {
@@ -40,10 +46,9 @@
                     {
                         data: "admin_id",
                         render: function(data, type, row) {
-                            if(data != null){
+                            if (data != null) {
                                 return `${row.admin.first_name} ${row.admin.last_name}`
-                            }
-                            else{
+                            } else {
                                 return ``;
                             }
                         }

@@ -2,10 +2,11 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-            <a href="/" class="h1">{{ env('APP_NAME') }}</a>
+            <a href="/" class="h1"><img src="{{ asset('/images/schoolLogo.png') }}" width="100" height="100">
+            </a>
         </div>
         <div class="card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">Assets Information Management System</p>
 
             <form id="loginForm">
                 <div class="input-group mb-3 col-12">

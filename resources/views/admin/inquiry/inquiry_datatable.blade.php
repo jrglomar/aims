@@ -21,6 +21,7 @@
                             <tr class="bg-info text-light">
                                 <th>ID</th>
                                 <th>Created at</th>
+                                <th>Sender</th>
                                 <th>Title</th>
                                 <th>Message</th>
                                 <th>Remarks</th>
@@ -36,6 +37,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Created at</th>
+                                <th>Sender</th>
                                 <th>Title</th>
                                 <th>Message</th>
                                 <th>Remarks</th>
