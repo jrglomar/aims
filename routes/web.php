@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 //-------------AUTH----------------//
 
+Route::get('/', function () {
+    return view('auth/login', ['page_title' => 'Login']);
+})->name('login');
 
 Route::get('/logout', function () {
     return view('auth/logout', ['page_title' => 'Logout']);
