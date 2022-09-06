@@ -25,6 +25,7 @@ class CreateEquipmentTable extends Migration
             $table->string('desciption')->nullable();
 
             // RELATIONSHIP ATTR
+            $table->foreignId('source_id')->nullable()->constrained('sources')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('inventory_id')->nullable()->constrained('inventories')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('condition_id')->nullable()->constrained('conditions')->onDelete('cascade')->onUpdate('cascade');
         });

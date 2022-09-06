@@ -15,6 +15,7 @@ class EquipmentController extends Controller
     public function index()
     {
         //
+        return Equipment::all();
     }
 
     /**
@@ -25,6 +26,11 @@ class EquipmentController extends Controller
     public function create()
     {
         //
+        $request->validate([
+            //
+        ]);
+
+        return Equipment::create($request->all());
     }
 
     /**
@@ -36,6 +42,11 @@ class EquipmentController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            //
+        ]);
+
+        return Equipment::create($request->all());
     }
 
     /**
@@ -44,9 +55,10 @@ class EquipmentController extends Controller
      * @param  \App\Models\Equipment  $equipment
      * @return \Illuminate\Http\Response
      */
-    public function show(Equipment $equipment)
+    public function show(Equipment $equipment, $id)
     {
         //
+        return Equipment::find($id);
     }
 
     /**
@@ -67,9 +79,13 @@ class EquipmentController extends Controller
      * @param  \App\Models\Equipment  $equipment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipment $equipment)
+    public function update(Request $request, Equipment $equipment, $id)
     {
         //
+        $equipment = Equipment::find($id);
+        $equipment->update($request->all());
+
+        return $equipment;
     }
 
     /**
@@ -81,5 +97,9 @@ class EquipmentController extends Controller
     public function destroy(Equipment $equipment)
     {
         //
+        $equipment = Inquiry::find($id);
+
+        $equipment->delete();
+        return $equipment;
     }
 }

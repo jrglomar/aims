@@ -26,7 +26,6 @@ class CreateInventoriesTable extends Migration
 
             // RELATIONSHIP ATTR
             $table->foreignId('person_in_charge_id')->nullable()->constrained('person_in_charges')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('source_id')->nullable()->constrained('sources')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

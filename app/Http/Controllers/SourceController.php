@@ -15,6 +15,7 @@ class SourceController extends Controller
     public function index()
     {
         //
+        return Source::all();
     }
 
     /**
@@ -25,6 +26,11 @@ class SourceController extends Controller
     public function create()
     {
         //
+        $request->validate([
+            //
+        ]);
+
+        return Source::create($request->all());
     }
 
     /**
@@ -36,6 +42,11 @@ class SourceController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            //
+        ]);
+
+        return Source::create($request->all());
     }
 
     /**
@@ -44,9 +55,10 @@ class SourceController extends Controller
      * @param  \App\Models\Source  $source
      * @return \Illuminate\Http\Response
      */
-    public function show(Source $source)
+    public function show(Source $source, $id)
     {
         //
+        return Source::find($id);
     }
 
     /**
@@ -67,9 +79,13 @@ class SourceController extends Controller
      * @param  \App\Models\Source  $source
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Source $source)
+    public function update(Request $request, Source $source, $id)
     {
         //
+        $source = Source::find($id);
+        $source->update($request->all());
+
+        return $source;
     }
 
     /**
@@ -81,5 +97,8 @@ class SourceController extends Controller
     public function destroy(Source $source)
     {
         //
+        $source = Source::find($id);
+        $source->delete();
+        return $source;
     }
 }
