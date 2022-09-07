@@ -26,7 +26,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="/admin/dashboard" class="d-block"> Admin Raven</a>
+                <a href="/admin/dashboard" id="sidebarUserName" class="d-block"> Admin Raven</a>
             </div>
         </div>
 

@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="hold-transition login-page login-bg">
+<body class="hold-transition login-page login-bg" style="height: 100vh !important">
 
     <section class="section">
         <div class="custom-content">
