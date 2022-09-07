@@ -50,36 +50,42 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-                <li class="{{ Request::segment(2) == 'dashboard' ? 'nav-item active' : 'nav-item' }}">
-                    <a href="/admin/dashboard"
-                        class="{{ Request::segment(2) == 'dashboard' ? 'nav-link active' : 'nav-link' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/admin/inquiry" class="{{ Request::segment(2) == 'inquiry'
-                        ? 'nav-link active' : 'nav-link' }}">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            Inquiry
-                        </p>
-                    </a>
-                </li>
+               <li class="nav-header">DASHBOARD</li>
+               <li class="{{ Request::segment(2) == 'dashboard' ? 'nav-item active' : 'nav-item' }}">
+                   <a href="/services/dashboard"
+                       class="{{ Request::segment(2) == 'dashboard' ? 'nav-link active' : 'nav-link' }}">
+                       <i class="nav-icon fas fa-tachometer-alt"></i>
+                       <p>
+                           Dashboard
+                       </p>
+                   </a>
+               </li>
+               <li class="nav-header">USER MANAGEMENT</li>
+               <li class="nav-item">
+                   <a href="/services/inquiry"
+                       class="{{ Request::segment(2) == 'inquiry' ? 'nav-link active' : 'nav-link' }}">
+                       <i class="nav-icon fas fa-question"></i>
+                       <p>
+                           Inquiries
+                       </p>
+                   </a>
+               </li>
+               <li class="nav-header">EQUIPMENT MANAGEMENT</li>
+               <li class="nav-item">
+                   <a href="/services/equipment"
+                       class="{{ Request::segment(2) == 'equipment' ? 'nav-link active' : 'nav-link' }}">
+                       <i class="nav-icon fas fa-boxes"></i>
+                       <p>
+                           Equipments
+                       </p>
+                   </a>
+               </li>
 
 
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
 
-        <div class="sidebar-custom">
-            <button type="button" class="btn btn-danger btn-block btn-icon-split logout-btn"
-                onclick="location.href = '{{ env('APP_URL') . '/logout' }}'" name="logout_btn">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </button>
-        </div>
     </div>
     <!-- /.sidebar -->
 </aside>

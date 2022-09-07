@@ -14,12 +14,12 @@
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
       <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-
+        <a class="nav-link" href="/logout" role="button">
+            Logout
         </a>
       </li>
 
-      
+
     </ul>
   </nav>
   <!-- /.navbar -->
