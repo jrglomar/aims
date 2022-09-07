@@ -15,6 +15,7 @@ class InventoryController extends Controller
     public function index()
     {
         //
+        return Inventory::all();
     }
 
     /**
@@ -25,6 +26,11 @@ class InventoryController extends Controller
     public function create()
     {
         //
+        $request->validate([
+            //
+        ]);
+
+        return Inventory::create($request->all());
     }
 
     /**
@@ -36,6 +42,12 @@ class InventoryController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            //
+        ]);
+
+        return Inventory::create($request->all());
+
     }
 
     /**
@@ -44,9 +56,10 @@ class InventoryController extends Controller
      * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function show(Inventory $inventory)
+    public function show(Inventory $inventory, $id)
     {
         //
+        return Inventory::find($id);
     }
 
     /**
@@ -58,6 +71,7 @@ class InventoryController extends Controller
     public function edit(Inventory $inventory)
     {
         //
+
     }
 
     /**
@@ -67,9 +81,13 @@ class InventoryController extends Controller
      * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inventory $inventory)
+    public function update(Request $request, Inventory $inventory, $id)
     {
         //
+        $inventory = Invetory::find($id);
+        $inventory->update($request->all());
+
+        return $inventory;
     }
 
     /**
@@ -81,5 +99,8 @@ class InventoryController extends Controller
     public function destroy(Inventory $inventory)
     {
         //
+        $inventory = Inquiry::find($id);
+        $inventory->delete();
+        return $inventory;
     }
 }

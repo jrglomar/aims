@@ -15,6 +15,7 @@ class PersonInChargeController extends Controller
     public function index()
     {
         //
+        return PersonInCharge::all();
     }
 
     /**
@@ -25,6 +26,11 @@ class PersonInChargeController extends Controller
     public function create()
     {
         //
+        $request->validate([
+            //
+        ]);
+
+        return PersonInCharge::create($request->all());
     }
 
     /**
@@ -36,6 +42,11 @@ class PersonInChargeController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            //
+        ]);
+
+        return PersonInCharge::create($request->all());
     }
 
     /**
@@ -44,9 +55,10 @@ class PersonInChargeController extends Controller
      * @param  \App\Models\PersonInCharge  $personInCharge
      * @return \Illuminate\Http\Response
      */
-    public function show(PersonInCharge $personInCharge)
+    public function show(PersonInCharge $personInCharge, $id)
     {
         //
+        return PersonInCharge::find($id);
     }
 
     /**
@@ -58,6 +70,7 @@ class PersonInChargeController extends Controller
     public function edit(PersonInCharge $personInCharge)
     {
         //
+
     }
 
     /**
@@ -67,9 +80,13 @@ class PersonInChargeController extends Controller
      * @param  \App\Models\PersonInCharge  $personInCharge
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PersonInCharge $personInCharge)
+    public function update(Request $request, PersonInCharge $personInCharge, $id)
     {
         //
+        $personInCharge = PersonInCharge::find($id);
+        $personInCharge->update($request->all());
+
+        return $personInCharge;
     }
 
     /**

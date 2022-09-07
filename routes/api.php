@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\ConditionController;
+use App\Http\Controllers\SourceController;
+use App\Http\Controllers\PersonInChargeController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\EquipmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +35,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     // USER
     Route::get('/user', [UserController::class, 'index']);
-    // Route::post('/user', [UserController::class, 'store']);
     Route::get('/user/{id}', [UserController::class, 'show']);
     Route::put('/user/{id}', [UserController::class, 'update']);
     Route::delete('/user/destroy/{id}', [UserController::class, 'destroy']);
@@ -44,4 +48,45 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('/inquiry/{id}', [InquiryController::class, 'update']);
     Route::delete('/inquiry/destroy/{id}', [InquiryController::class, 'destroy']);
     Route::put('/inquiry/restore/{id}', [InquiryController::class, 'restore']);
+
+    // CONDITION
+    Route::get('/condition', [ConditionController::class, 'index']);
+    Route::post('/condition', [ConditionController::class, 'store']);
+    Route::get('/condition/{id}', [ConditionController::class, 'show']);
+    Route::put('/condition/{id}', [ConditionController::class, 'update']);
+    Route::delete('/condition/destroy/{id}', [ConditionController::class, 'destroy']);
+    Route::put('/condition/restore/{id}', [ConditionController::class, 'restore']);
+
+    // SOURCE
+    Route::get('/source', [SourceController::class, 'index']);
+    Route::post('/source', [SourceController::class, 'store']);
+    Route::get('/source/{id}', [SourceController::class, 'show']);
+    Route::put('/source/{id}', [SourceController::class, 'update']);
+    Route::delete('/source/destroy/{id}', [SourceController::class, 'destroy']);
+    Route::put('/source/restore/{id}', [SourceController::class, 'restore']);
+
+    // PERSON IN CHARGE
+    Route::get('/person_in_charge', [PersonInChargeController::class, 'index']);
+    Route::post('/person_in_charge', [PersonInChargeController::class, 'store']);
+    Route::get('/person_in_charge/{id}', [PersonInChargeController::class, 'show']);
+    Route::put('/person_in_charge/{id}', [PersonInChargeController::class, 'update']);
+    Route::delete('/person_in_charge/destroy/{id}', [PersonInChargeController::class, 'destroy']);
+    Route::put('/person_in_charge/restore/{id}', [PersonInChargeController::class, 'restore']);
+
+    // INVENTORY
+    Route::get('/inventory', [InventoryController::class, 'index']);
+    Route::post('/inventory', [InventoryController::class, 'store']);
+    Route::get('/inventory/{id}', [InventoryController::class, 'show']);
+    Route::put('/inventory/{id}', [InventoryController::class, 'update']);
+    Route::delete('/inventory/destroy/{id}', [InventoryController::class, 'destroy']);
+    Route::put('/inventory/restore/{id}', [InventoryController::class, 'restore']);
+
+    // EQUIPMENT
+    Route::get('/equipment', [EquipmentController::class, 'index']);
+    Route::post('/equipment', [EquipmentController::class, 'store']);
+    Route::get('/equipment/{id}', [EquipmentController::class, 'show']);
+    Route::put('/equipment/{id}', [EquipmentController::class, 'update']);
+    Route::delete('/equipment/destroy/{id}', [EquipmentController::class, 'destroy']);
+    Route::put('/equipment/restore/{id}', [EquipmentController::class, 'restore']);
+
 });

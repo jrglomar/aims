@@ -15,6 +15,7 @@ class ConditionController extends Controller
     public function index()
     {
         //
+        return Condition::all();
     }
 
     /**
@@ -25,6 +26,11 @@ class ConditionController extends Controller
     public function create()
     {
         //
+        $request->validate([
+            //
+        ]);
+
+        return Condition::create($request->all());
     }
 
     /**
@@ -36,6 +42,11 @@ class ConditionController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            //
+        ]);
+
+        return Condition::create($request->all());
     }
 
     /**
@@ -44,9 +55,10 @@ class ConditionController extends Controller
      * @param  \App\Models\Condition  $condition
      * @return \Illuminate\Http\Response
      */
-    public function show(Condition $condition)
+    public function show(Condition $condition, $id)
     {
         //
+        return Condition::find($id);
     }
 
     /**
@@ -67,7 +79,7 @@ class ConditionController extends Controller
      * @param  \App\Models\Condition  $condition
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Condition $condition)
+    public function update(Request $request, Condition $condition, $id)
     {
         //
     }
