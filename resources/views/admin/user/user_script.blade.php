@@ -22,10 +22,12 @@
 
             dataTable = $('#dataTable').DataTable({
                 "ajax": {
-                    url: BASE_API,
-                    dataSrc: ''
+                    url: BASE_API + '/datatable'
                 },
-                headers: {
+                "processing": true,
+                "serverSide": true,
+                "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+                "headers": {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
                     "Authorization": API_TOKEN,
@@ -98,14 +100,14 @@
                 ],
                 "aoColumnDefs": [{
                     "bVisible": false,
-                    "aTargets": [0, 1, 2]
+                    "aTargets": [0, 1]
                 }],
                 "order": [
                     [1, "desc"]
                 ],
 
                 // EXPORTING AS PDF
-                'dom': 'Bfrtip',
+                'dom': 'Blrtip',
                 'buttons': {
                     dom: {
                         button: {
@@ -151,31 +153,7 @@
                     .draw();
             });
 
-            // DATE RANGE FILTER
-            $.fn.dataTable.ext.search.push(
-                function(settings, data, dataIndex) {
-                    var min = $('#date_from').val();
-                    var max = $('#date_to').val();
-                    var dateOfObs = data[1] // Our date column in the table
 
-                    if (
-                        (min == "" || max == "") ||
-                        (moment(dateOfObs).isSameOrAfter(moment(min).format('YYYY-MM-DD' +
-                                ' 00:00:00')) &&
-                            moment(dateOfObs).isSameOrBefore(moment(max).format('YYYY-MM-DD' +
-                                ' 23:59:59'))
-                        )
-                    ) {
-                        return true;
-                    }
-                    return false;
-                }
-            );
-
-            // Re-draw the table when the a date range filter changes
-            $('.date-range-filter').change(function() {
-                dataTable.draw();
-            });
 
             // TO ADD BUTTON TO DIV TABLE ACTION
             dataTable.buttons().container().appendTo('#tableActions');

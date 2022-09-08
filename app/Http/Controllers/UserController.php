@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+// BEFORE USING THIS PACKAGE. INSTALL YAJRA DATATABLES AND ADD PROVIDER AND ALIASES ON CONFIG APP
+use DataTables;
+
 class UserController extends Controller
 {
     /**
@@ -16,6 +19,15 @@ class UserController extends Controller
     {
         //
         return User::all();
+    }
+
+    public function datatable()
+    {
+        $data = User::all();
+        return Datatables::of($data)
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->make(true);
     }
 
     /**
@@ -93,6 +105,6 @@ class UserController extends Controller
 
     public function search($email)
     {
-        return User::where('email', 'like', '%'.$email.'%')->get();
+        return User::where('email', 'like', '%' . $email . '%')->get();
     }
 }

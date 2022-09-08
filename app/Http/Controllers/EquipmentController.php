@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Equipment;
 use Illuminate\Http\Request;
 
+// BEFORE USING THIS PACKAGE. INSTALL YAJRA DATATABLES AND ADD PROVIDER AND ALIASES ON CONFIG APP
+use DataTables;
+
 class EquipmentController extends Controller
 {
     /**
@@ -16,6 +19,16 @@ class EquipmentController extends Controller
     {
         //
         return Equipment::all();
+    }
+
+
+    public function datatable(){
+
+        $data = Equipment::all();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->rawColumns(['action'])
+                    ->make(true);
     }
 
     /**

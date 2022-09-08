@@ -18,10 +18,12 @@
 
             dataTable = $('#dataTable').DataTable({
                 "ajax": {
-                    url: BASE_API,
-                    dataSrc: ''
+                    url: BASE_API + '/datatable'
                 },
-                headers: {
+                "processing": true,
+                "serverSide": true,
+                "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+                "headers": {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
                     "Authorization": API_TOKEN,
@@ -81,12 +83,12 @@
                 ],
                 "aoColumnDefs": [{
                     "bVisible": false,
-                    "aTargets": [0, 1, 2]
+                    "aTargets": [0, 1]
                 }],
                 "order": [
                     [1, "desc"]
                 ],
-                'dom': 'Bfrtip',
+                'dom': 'Blrtip',
                 'buttons': {
                     dom: {
                         button: {
