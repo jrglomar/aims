@@ -1,4 +1,13 @@
 <script>
+    // GLOBAL VARIABLE
+    var APP_URL = "{{ env('APP_URL') }}"
+    var API_URL = "{{ env('API_URL') }}"
+    var API_TOKEN = localStorage.getItem("API_TOKEN")
+    var USER_DATA = JSON.parse(localStorage.getItem("USER_DATA"))
+    var BASE_API = API_URL + '/inquiry'
+
+    $('#sidebarUserName').html(`${USER_DATA.first_name} ${USER_DATA.last_name}`)
+
     function swalAlert(icon, text) {
         Swal.fire({
             icon: icon,

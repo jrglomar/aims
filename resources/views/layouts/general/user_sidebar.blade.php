@@ -22,11 +22,11 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('vendors/adminlte/dist/img/avatar5.png') }}" class="img-circle elevation-2"
+                <img src="{{ asset('vendors/adminlte/dist/img/avatar4.png') }}" class="img-circle elevation-2"
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="/services/dashboard" class="d-block"> Admin Raven</a>
+                <a href="/services/dashboard" id="sidebarUserName" class="d-block"> </a>
             </div>
         </div>
 
@@ -57,7 +57,7 @@
                        <i class="nav-icon fas fa-tachometer-alt"></i>
                        <p>
                            Dashboard
-                       </p>
+                          </p>
                    </a>
                </li>
                <li class="nav-header">USER MANAGEMENT</li>
