@@ -49,7 +49,7 @@
             }
 
             logout()
-
+            $('#loading_cover').fadeOut()
         });
     </script>
 @endsection

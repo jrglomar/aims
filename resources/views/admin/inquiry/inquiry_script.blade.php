@@ -11,6 +11,12 @@
 
         // DATA TABLES FUNCTION
         function dataTable() {
+            $('#dataTable tfoot th').each(function(i) {
+                var title = $('#dataTable thead th').eq($(this).index()).text();
+                $(this).html('<input size="15" class="form-control" type="text" placeholder="' + title +
+                    '" data-index="' + i + '" />');
+            });
+
             dataTable = $('#dataTable').DataTable({
                 "ajax": {
                     url: BASE_API,
@@ -27,6 +33,12 @@
                     },
                     {
                         data: "created_at"
+                    },
+                    {
+                        data: "created_at",
+                        render: function(data, type, row) {
+                            return moment(data).format('llll')
+                        }
                     },
                     {
                         data: "user_id",
@@ -96,12 +108,85 @@
                 ],
                 "aoColumnDefs": [{
                     "bVisible": false,
-                    "aTargets": [0, 1]
+                    "aTargets": [0, 1, 2]
                 }],
                 "order": [
                     [1, "desc"]
-                ]
+                ],
+                // EXPORTING AS PDF
+                'dom': 'Bfrtip',
+                'buttons': {
+                    dom: {
+                        button: {
+                            tag: 'button',
+                            className: ''
+                        }
+                    },
+                    buttons: [{
+                        extend: 'pdfHtml5',
+                        text: 'Export as PDF',
+                        orientation: 'landscape',
+                        pageSize: 'LEGAL',
+                        exportOptions: {
+                            // columns: ':visible',
+                            columns: ":not(.not-export-column)",
+                            modifier: {
+                                order: 'current'
+                            }
+                        },
+                        className: 'btn btn-dark mx-2',
+                        titleAttr: 'PDF export.',
+                        extension: '.pdf',
+                        download: 'open', // FOR NOT DOWNLOADING THE FILE AND OPEN IN NEW TAB
+                        title: function() {
+                            return "List of {{ $page_title }}"
+                        },
+                        filename: function() {
+                            return "List of {{ $page_title }}"
+                        },
+                        customize: function(doc) {
+                            doc.styles.tableHeader.alignment = 'left';
+                        }
+                    }, ]
+                },
             })
+
+            // TO ADD BUTTON TO DIV TABLE ACTION
+            dataTable.buttons().container().appendTo('#tableActions');
+
+            // FOOTER FILTER
+            $(dataTable.table().container()).on('keyup', 'tfoot input', function() {
+                console.log(this.value)
+                console.log(dataTable)
+                dataTable
+                    .column($(this).data('index'))
+                    .search(this.value)
+                    .draw();
+            });
+
+            // DATE RANGE FILTER
+            $.fn.dataTable.ext.search.push(
+                function(settings, data, dataIndex) {
+                    var min = $('#date_from').val();
+                    var max = $('#date_to').val();
+                    var dateOfObs = data[1] // Our date column in the table
+
+                    if (
+                        (min == "" || max == "") ||
+                        (moment(dateOfObs).isSameOrAfter(moment(min).format('YYYY-MM-DD' + ' 00:00:00')) &&
+                            moment(dateOfObs).isSameOrBefore(moment(max).format('YYYY-MM-DD' + ' 23:59:59'))
+                        )
+                    ) {
+                        return true;
+                    }
+                    return false;
+                }
+            );
+
+            // Re-draw the table when the a date range filter changes
+            $('.date-range-filter').change(function() {
+                dataTable.draw();
+            });
         }
         // END OF DATATABLE FUNCTION
 
@@ -157,7 +242,7 @@
         })
         // END OF EDIT FUNCTION
 
-        // UPDATE FUNCTION 
+        // UPDATE FUNCTION
         $(document).on('click', '.btnUpdate', function() {
             var id = this.id;
             console.log(id)
@@ -184,7 +269,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function(data) {
-                    notification('info', 'User')
+                    notification('info', "{{ Str::singular($page_title) }}")
                     refresh();
                     $('#editModal').modal('hide');
                     console.log(data)
@@ -243,7 +328,9 @@
                                 },
 
                                 success: function(data) {
-                                    notification('error', 'User')
+                                    notification('error',
+                                        "{{ Str::singular($page_title) }}"
+                                    )
                                     refresh();
                                 },
                                 error: function(error) {
@@ -277,8 +364,12 @@
         });
         // END OF DEACTIVATE FUNCTION
 
-
         // FUNCTION CALLING
-        dataTable();
+        async function removeLoader() {
+            const result = await dataTable()
+            $("#loading_cover").fadeOut();
+        }
+
+        removeLoader()
     });
 </script>

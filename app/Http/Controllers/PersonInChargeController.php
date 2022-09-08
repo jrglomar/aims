@@ -27,7 +27,9 @@ class PersonInChargeController extends Controller
     {
         //
         $request->validate([
-            //
+            'first_name' => 'required',
+            'last_name' => 'required',
+            // 'inventory_id' => 'required'
         ]);
 
         return PersonInCharge::create($request->all());

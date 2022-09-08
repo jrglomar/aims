@@ -18,13 +18,13 @@
 {{-- CONTENT --}}
 @section('content')
     {{-- FORM --}}
-    @include('admin/user/user_modal')
+    @include('admin/person_in_charge/person_in_charge_modal')
 
     {{-- FORM --}}
-    @include('admin/user/user_form')
+    @include('admin/person_in_charge/person_in_charge_form')
 
     {{-- DATATABLE --}}
-    @include('admin/user/user_datatable')
+    @include('admin/person_in_charge/person_in_charge_datatable')
 @endsection
 
 {{-- FOOTER --}}
@@ -34,5 +34,5 @@
 
 
 @section('script')
-    @include('admin/user/user_script')
+    @include('admin/person_in_charge/person_in_charge_script')
 @endsection

@@ -18,13 +18,13 @@
 {{-- CONTENT --}}
 @section('content')
     {{-- FORM --}}
-    @include('admin/user/user_modal')
+    @include('admin/inventory/inventory_modal')
 
     {{-- FORM --}}
-    @include('admin/user/user_form')
+    @include('admin/inventory/inventory_form')
 
     {{-- DATATABLE --}}
-    @include('admin/user/user_datatable')
+    @include('admin/inventory/inventory_datatable')
 @endsection
 
 {{-- FOOTER --}}
@@ -34,5 +34,5 @@
 
 
 @section('script')
-    @include('admin/user/user_script')
+    @include('admin/inventory/inventory_script')
 @endsection

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-// ADDED 
+// ADDED
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PersonInCharge extends Model
@@ -14,8 +14,9 @@ class PersonInCharge extends Model
 
     // FILLABLES
     protected $fillable = [
-        'name',
-        'user_id'
+        'first_name',
+        'last_name',
+        'inventory_id'
     ];
 
     // DATES

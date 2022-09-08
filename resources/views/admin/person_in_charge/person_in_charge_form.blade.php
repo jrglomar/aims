@@ -6,13 +6,14 @@
                 <h4> <span id="create_card_title">New</span> {{ Str::singular($page_title); }}</h4>
             </div>
 
-            <form id="registerForm" data-parsley-validate>
+            <form id="createForm" data-parsley-validate>
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label class="required-input">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email"
-                                tabindex="1" required>
+                            <label class="required-input">Inventory</label>
+                            <select class="form-control" id="inventory_id" name="inventory_id">
+
+                            </select>
                         </div>
                     </div>
                     <div class="row">
@@ -30,19 +31,6 @@
                             <label class="required-input">Last Name</label>
                             <input type="text" class="form-control" id="last_name" name="last_name"
                                 placeholder="Last Name" tabindex="1" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <label class="required-input">Password</label>
-                            <input type="password" class="form-control" id="password" name="password"
-                                placeholder="Password" tabindex="1" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label class="required-input">Password Confirmation</label>
-                            <input type="password" class="form-control" id="password_confirmation"
-                                name="password_confirmation" placeholder="Password Confirmation" tabindex="1"
-                                required>
                         </div>
                     </div>
                 </div>

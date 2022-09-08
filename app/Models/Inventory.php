@@ -16,7 +16,6 @@ class Inventory extends Model
     protected $fillable = [
         'title',
         'location',
-        'person_in_charge_id',
     ];
 
     // DATES

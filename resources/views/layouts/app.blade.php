@@ -11,16 +11,31 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- MAIN CSS LINKS --}}
     @include('layouts.css_includes')
+    <style>
+        #loading_cover {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgb(255, 255, 255);
+            z-index: 9999;
+        }
+    </style>
 </head>
 
 <body class="sidebar-mini layout-fixed">
 
     <div class="wrapper">
-        <!-- Preloader -->
-        <div class="preloader"
-            style="position: relative; justify-content: center; align-items:center; transition: height .2s linear;">
-            <img src="{{ asset('/vendors/adminlte/dist/img/laravel-svg.png') }}" alt="LaravelLogo" height="120"
-                width="120">
+        <div id="loading_cover">
+            <div style="position: fixed; height:100%; width:100%; top:50%; left:50%">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div style="position: fixed; height:100%; width:100%; top:55%; left:48%">
+                Please Wait.....
+            </div>
         </div>
 
         {{-- NAVBAR --}}
@@ -33,7 +48,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
-                    <div class="section-header">
+                    <div class="section-header d-flex justify-content-between">
                         @yield('section_header')
                     </div>
                 </div><!-- /.container-fluid -->

@@ -21,10 +21,11 @@ class CreatePersonInChargesTable extends Migration
             $table->softDeletes();
 
             // ADDED ATTR
-            $table->string('name')->nullable();
-            
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+
             // RELATIONSHIP ATTR
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('inventory_id')->nullable()->constrained('inventories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

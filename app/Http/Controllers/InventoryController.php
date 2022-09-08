@@ -84,7 +84,7 @@ class InventoryController extends Controller
     public function update(Request $request, Inventory $inventory, $id)
     {
         //
-        $inventory = Invetory::find($id);
+        $inventory = Inventory::find($id);
         $inventory->update($request->all());
 
         return $inventory;

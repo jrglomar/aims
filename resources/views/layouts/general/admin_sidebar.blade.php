@@ -80,20 +80,20 @@
                 </li>
                 <li class="nav-header">INVENTORY MANAGEMENT</li>
                 <li class="nav-item">
-                    <a href="/admin/person_in_charge"
-                        class="{{ Request::segment(2) == 'person_in_charge' ? 'nav-link active' : 'nav-link' }}">
-                        <i class="nav-icon fas fa-user-check"></i>
-                        <p>
-                            Person In Charges
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="/admin/inventory"
                         class="{{ Request::segment(2) == 'inventory' ? 'nav-link active' : 'nav-link' }}">
                         <i class="nav-icon fas fa-warehouse"></i>
                         <p>
                             Inventories
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/person_in_charge"
+                        class="{{ Request::segment(2) == 'person_in_charge' ? 'nav-link active' : 'nav-link' }}">
+                        <i class="nav-icon fas fa-user-check"></i>
+                        <p>
+                            Person In Charges
                         </p>
                     </a>
                 </li>

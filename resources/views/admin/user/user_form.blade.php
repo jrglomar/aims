@@ -3,7 +3,7 @@
     <div class="col-md-12 collapse" id="create_card">
         <div class="card card-dark">
             <div class="card-header">
-                <h4> <span id="create_card_title">New</span> {{ $page_title }}</h4>
+                <h4> <span id="create_card_title">New</span> {{ Str::singular($page_title); }}</h4>
             </div>
 
             <form id="registerForm" data-parsley-validate>

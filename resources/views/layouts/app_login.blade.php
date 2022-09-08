@@ -12,10 +12,31 @@
 
     {{-- MAIN CSS LINKS --}}
     @include('layouts.login_css_includes')
-
+    <style>
+        #loading_cover {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgb(255, 255, 255);
+            z-index: 9999;
+        }
+    </style>
 </head>
 
 <body class="hold-transition login-page login-bg" style="height: 100vh !important">
+
+    <div id="loading_cover">
+        <div style="position: fixed; height:100%; width:100%; top:50%; left:50%">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div style="position: fixed; height:100%; width:100%; top:55%; left:48%">
+            Please Wait.....
+        </div>
+    </div>
 
     <section class="section">
         <div class="custom-content">
