@@ -190,7 +190,7 @@
         })
         // END OF EDIT FUNCTION
 
-        // UPDATE FUNCTION 
+        // UPDATE FUNCTION
         $(document).on('click', '.btnUpdate', function() {
             var id = this.id;
             console.log(id)
