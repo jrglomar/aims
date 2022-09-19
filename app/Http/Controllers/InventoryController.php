@@ -37,11 +37,12 @@ class InventoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
         $request->validate([
-            //
+            'title' => 'required',
+            'location' => 'required'
         ]);
 
         return Inventory::create($request->all());

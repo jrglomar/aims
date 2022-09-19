@@ -5,7 +5,7 @@
         var APP_URL = "{{ env('APP_URL') }}"
         var API_URL = "{{ env('API_URL') }}"
         var API_TOKEN = localStorage.getItem("API_TOKEN")
-        var BASE_API = API_URL + '/person_in_charge'
+        var BASE_API = API_URL + '/condition'
 
         // DATA TABLES FUNCTION
         function dataTable() {
@@ -22,10 +22,7 @@
                 },
                 "processing": true,
                 "serverSide": true,
-                "lengthMenu": [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "All"]
-                ],
+                "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
                 "headers": {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
@@ -45,18 +42,10 @@
                         }
                     },
                     {
-                        data: "first_name",
-                        render: function(data, type, row) {
-                            return `${row.first_name} ${row.last_name}`
-                        }
+                        data: "title",
                     },
                     {
-                        data: "inventory_id",
-                        render: function(data, type, row){
-                            if(data != null){
-                                return row.inventory.title
-                            }
-                        }
+                        data: "description"
                     },
                     {
                         data: "deleted_at",
@@ -96,6 +85,8 @@
                 "order": [
                     [1, "desc"]
                 ],
+
+                // EXPORTING AS PDF
                 'dom': 'Blrtip',
                 'buttons': {
                     dom: {
@@ -116,7 +107,7 @@
                                 order: 'current'
                             }
                         },
-                        className: 'btn btn-dark mr-2',
+                        className: 'btn btn-dark mx-2',
                         titleAttr: 'PDF export.',
                         extension: '.pdf',
                         download: 'open', // FOR NOT DOWNLOADING THE FILE AND OPEN IN NEW TAB
@@ -132,7 +123,6 @@
                     }, ]
                 },
             })
-
             // FOOTER FILTER
             $(dataTable.table().container()).on('keyup', 'tfoot input', function() {
                 console.log(this.value)
@@ -143,30 +133,6 @@
                     .draw();
             });
 
-            // DATE RANGE FILTER
-            $.fn.dataTable.ext.search.push(
-                function(settings, data, dataIndex) {
-                    var min = $('#date_from').val();
-                    var max = $('#date_to').val();
-                    var dateOfObs = data[1] // Our date column in the table
-
-                    if (
-                        (min == "" || max == "") ||
-                        (moment(dateOfObs).isSameOrAfter(moment(min).format('YYYY-MM-DD' + ' 00:00:00')) &&
-                            moment(dateOfObs).isSameOrBefore(moment(max).format('YYYY-MM-DD' + ' 23:59:59'))
-                        )
-                    ) {
-                        return true;
-                    }
-                    return false;
-                }
-            );
-
-            // Re-draw the table when the a date range filter changes
-            $('.date-range-filter').change(function() {
-                dataTable.draw();
-            });
-
             // TO ADD BUTTON TO DIV TABLE ACTION
             dataTable.buttons().container().appendTo('#tableActions');
         }
@@ -174,10 +140,6 @@
 
         // REFRESH DATATABLE FUNCTION
         function refresh() {
-            // let url = BASE_API;
-
-            // dataTable.ajax.url(url).load()
-
             setInterval(() => {
                 window.location.reload()
             }, 1500);
@@ -251,9 +213,8 @@
                 success: function(data) {
                     console.log(data)
                     $('.btnUpdate').attr('id', data.id)
-                    $('#inventory_id_edit').val(data.inventory_id)
-                    $('#first_name_edit').val(data.first_name)
-                    $('#last_name_edit').val(data.last_name)
+                    $('#title_edit').val(data.title)
+                    $('#description_edit').val(data.description)
                     $('#editModal').modal('show');
                 },
                 error: function(error) {
@@ -281,9 +242,8 @@
             // FORM DATA
             var form = $("#editForm").serializeArray();
             var form_data = {
-                "inventory_id": $('#inventory_id_edit').val(),
-                "first_name": $('#first_name_edit').val(),
-                "last_name": $('#last_name_edit').val(),
+                "title": $('#title_edit').val(),
+                "description": $('#description_edit').val(),
             }
 
             // ajax opening tag
@@ -394,52 +354,12 @@
         });
         // END OF DEACTIVATE FUNCTION
 
-        function fetch_inventories() {
-            $.ajax({
-                url: API_URL + '/inventory',
-                method: "GET",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "Authorization": API_TOKEN,
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(data) {
-                    console.log(data)
-                    let html = '<option disabled selected value="">Select Inventory</option>';
-
-                    data.forEach(function(row) {
-                        html += `<option value="${row.id}">${row.title}</option>`
-                    });
-
-                    $('#inventory_id').html(html)
-                    $('#inventory_id_edit').html(html)
-
-                },
-                error: function(error) {
-                    console.log(error)
-                    if (error.responseJSON.errors == null) {
-                        swalAlert('warning', error.responseJSON.message)
-                    } else {
-                        $.each(error.responseJSON.errors, function(key, value) {
-                            swalAlert('warning', value)
-                        });
-                    }
-                }
-                // ajax closing tag
-            })
-
-        }
-
-
-        // FUNCTION CALLING
         // FUNCTION CALLING
         async function removeLoader() {
             const result = await dataTable()
             $("#loading_cover").fadeOut();
         }
 
-        fetch_inventories()
         removeLoader()
     });
 </script>

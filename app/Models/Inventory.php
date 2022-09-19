@@ -22,8 +22,12 @@ class Inventory extends Model
     protected $dates = ['deleted_at'];
 
     // RELATIONSHIP
+    public function person_in_charges()
+    {
+        return $this->hasMany(PersonInCharge::class, 'inventory_id')->without('inventory');
+    }
 
 
     // AUTO LOADING RELATIONSHIP
-    protected $with = [];
+    protected $with = ["person_in_charges"];
 }

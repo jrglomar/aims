@@ -25,8 +25,21 @@ class Equipment extends Model
     protected $dates = ['deleted_at'];
 
     // RELATIONSHIP
+    public function inventory()
+    {
+        return $this->belongsTo(Inventory::class, 'inventory_id');
+    }
 
+    public function source()
+    {
+        return $this->belongsTo(Source::class, 'inventory_id');
+    }
+
+    public function condition()
+    {
+        return $this->belongsTo(Condition::class, 'inventory_id');
+    }
 
     // AUTO LOADING RELATIONSHIP
-    protected $with = [];
+    protected $with = ["inventory", "source", "condition"];
 }

@@ -23,8 +23,12 @@ class PersonInCharge extends Model
     protected $dates = ['deleted_at'];
 
     // RELATIONSHIP
+    public function inventory()
+    {
+        return $this->belongsTo(Inventory::class, 'inventory_id');
+    }
 
 
     // AUTO LOADING RELATIONSHIP
-    protected $with = [];
+    protected $with = ["inventory"];
 }

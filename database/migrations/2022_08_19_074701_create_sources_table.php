@@ -22,7 +22,7 @@ class CreateSourcesTable extends Migration
 
             // ADDED ATTR
             $table->string('title')->unique();
-            $table->string('desciption')->nullable();
+            $table->string('description')->nullable();
         });
     }
 

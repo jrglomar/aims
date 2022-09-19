@@ -21,7 +21,7 @@ class CreateConditionsTable extends Migration
             $table->softDeletes();
 
             $table->string('title')->unique();
-            $table->string('desciption')->nullable();
+            $table->string('description')->nullable();
         });
     }
 

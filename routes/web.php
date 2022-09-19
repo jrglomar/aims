@@ -104,6 +104,11 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('/services/inquiry', function () {
                 return view('user/inquiry/inquiry', ['page_title' => 'Inquiries']);
             })->name('user_inquiry');
+
+            // ------------EQUIPMENT--------------- //
+            Route::get('/services/equipment', function () {
+                return view('user/equipment/equipment', ['page_title' => 'Equipments']);
+            })->name('user_equipment');
         }
     );
 });

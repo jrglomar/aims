@@ -40,7 +40,11 @@ class EquipmentController extends Controller
     {
         //
         $request->validate([
-            //
+            'title' => 'required',
+            'description' => 'required',
+            'source_id' => 'required',
+            'inventory_id' => 'required',
+            'condition_id' => 'required',
         ]);
 
         return Equipment::create($request->all());

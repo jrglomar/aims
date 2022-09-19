@@ -22,7 +22,7 @@ class CreateEquipmentTable extends Migration
 
             // ADDED ATTR
             $table->string('title')->unique();
-            $table->string('desciption')->nullable();
+            $table->string('description')->nullable();
 
             // RELATIONSHIP ATTR
             $table->foreignId('source_id')->nullable()->constrained('sources')->onDelete('cascade')->onUpdate('cascade');

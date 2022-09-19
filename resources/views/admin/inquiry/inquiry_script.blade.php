@@ -194,9 +194,13 @@
 
         // REFRESH DATATABLE FUNCTION
         function refresh() {
-            let url = BASE_API;
+            // let url = BASE_API;
 
-            dataTable.ajax.url(url).load()
+            // dataTable.ajax.url(url).load()
+
+            setInterval(() => {
+                window.location.reload()
+            }, 1500);
         }
         // REFRESH DATATABLE FUNCTION
 

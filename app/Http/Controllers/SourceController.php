@@ -36,11 +36,12 @@ class SourceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
         $request->validate([
-            //
+            'title' => 'required',
+            'description' => 'required'
         ]);
 
         return Source::create($request->all());
