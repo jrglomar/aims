@@ -5,12 +5,11 @@
         var APP_URL = "{{ env('APP_URL') }}"
         var API_URL = "{{ env('API_URL') }}"
         var API_TOKEN = localStorage.getItem("API_TOKEN")
-        var USER_DATA = JSON.parse(localStorage.getItem("USER_DATA"))
-        var BASE_API = API_URL + '/inquiry'
-
+        var BASE_API = API_URL + '/inventory'
 
         // DATA TABLES FUNCTION
         function dataTable() {
+            // FOR FOOTER GENERATE OF INPUT
             $('#dataTable tfoot th').each(function(i) {
                 var title = $('#dataTable thead th').eq($(this).index()).text();
                 $(this).html('<input size="15" class="form-control" type="text" placeholder="' + title +
@@ -43,39 +42,10 @@
                         }
                     },
                     {
-                        data: "user_id",
-                        render: function(data, type, row) {
-                            return `${row.user.first_name} ${row.user.last_name} - ${row.user.email}`
-                        }
+                        data: "title",
                     },
                     {
-                        data: "title"
-                    },
-                    {
-                        data: "description"
-                    },
-                    {
-                        data: "remarks"
-                    },
-                    {
-                        data: "admin_id",
-                        render: function(data, type, row) {
-                            if (data != null) {
-                                return `${row.admin.first_name} ${row.admin.last_name}`
-                            } else {
-                                return ``;
-                            }
-                        }
-                    },
-                    {
-                        data: "status",
-                        render: function(data, type, row) {
-                            if (data == 'Pending') {
-                                return `<span class="badge badge-secondary">${data}</span>`
-                            } else {
-                                return `<span class="badge badge-success">${data}</span>`
-                            }
-                        }
+                        data: "location"
                     },
                     {
                         data: "deleted_at",
@@ -115,8 +85,9 @@
                 "order": [
                     [1, "desc"]
                 ],
+
                 // EXPORTING AS PDF
-                'dom': 'Bfrtip',
+                'dom': 'Blrtip',
                 'buttons': {
                     dom: {
                         button: {
@@ -152,10 +123,6 @@
                     }, ]
                 },
             })
-
-            // TO ADD BUTTON TO DIV TABLE ACTION
-            dataTable.buttons().container().appendTo('#tableActions');
-
             // FOOTER FILTER
             $(dataTable.table().container()).on('keyup', 'tfoot input', function() {
                 console.log(this.value)
@@ -166,29 +133,8 @@
                     .draw();
             });
 
-            // DATE RANGE FILTER
-            $.fn.dataTable.ext.search.push(
-                function(settings, data, dataIndex) {
-                    var min = $('#date_from').val();
-                    var max = $('#date_to').val();
-                    var dateOfObs = data[1] // Our date column in the table
-
-                    if (
-                        (min == "" || max == "") ||
-                        (moment(dateOfObs).isSameOrAfter(moment(min).format('YYYY-MM-DD' + ' 00:00:00')) &&
-                            moment(dateOfObs).isSameOrBefore(moment(max).format('YYYY-MM-DD' + ' 23:59:59'))
-                        )
-                    ) {
-                        return true;
-                    }
-                    return false;
-                }
-            );
-
-            // Re-draw the table when the a date range filter changes
-            $('.date-range-filter').change(function() {
-                dataTable.draw();
-            });
+            // TO ADD BUTTON TO DIV TABLE ACTION
+            dataTable.buttons().container().appendTo('#tableActions');
         }
         // END OF DATATABLE FUNCTION
 
@@ -201,7 +147,54 @@
         // REFRESH DATATABLE FUNCTION
 
 
+        // CREATE FUNCTION
+        $('#createForm').on('submit', function(e) {
+            e.preventDefault()
 
+            // VARIABLES
+            var form_url = BASE_API
+
+            // FORM DATA
+            var form = $("#createForm").serializeArray();
+
+            var form_data = {}
+            $.each(form, function() {
+                form_data[[this.name]] = this.value;
+            })
+            console.log(form_data)
+
+            // ajax opening tag
+            $.ajax({
+                url: form_url,
+                method: "POST",
+                data: JSON.stringify(form_data),
+                dataType: "JSON",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "Authorization": API_TOKEN,
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    notification('success', "{{ Str::singular($page_title) }}")
+                    $("#createForm").trigger("reset")
+                    $("#create_card").collapse("hide")
+                    refresh();
+                },
+                error: function(error) {
+                    console.log(error)
+                    if (error.responseJSON.errors == null) {
+                        swalAlert('warning', error.responseJSON.message)
+                    } else {
+                        $.each(error.responseJSON.errors, function(key, value) {
+                            swalAlert('warning', value)
+                        });
+                    }
+                }
+                // ajax closing tag
+            })
+        });
+        // END OF CREATE FUNCTION
 
         // EDIT FUNCTION
         $(document).on('click', '.btnEdit', function() {
@@ -221,11 +214,7 @@
                     console.log(data)
                     $('.btnUpdate').attr('id', data.id)
                     $('#title_edit').val(data.title)
-                    $('#remarks_edit').val(data.remarks)
-                    $('#message_edit').val(data.description)
-                    let sender =
-                        `${data.user.first_name} ${data.user.last_name} - ${data.user.email}`
-                    $('#sender_edit').val(sender)
+                    $('#location_edit').val(data.location)
                     $('#editModal').modal('show');
                 },
                 error: function(error) {
@@ -253,9 +242,8 @@
             // FORM DATA
             var form = $("#editForm").serializeArray();
             var form_data = {
-                "remarks": $('#remarks_edit').val(),
-                "admin_id": USER_DATA.id,
-                "status": 'Remarked',
+                "title": $('#title_edit').val(),
+                "location": $('#location_edit').val(),
             }
 
             // ajax opening tag

@@ -24,8 +24,6 @@ class CreateInventoriesTable extends Migration
             $table->string('title')->nullable();
             $table->string('location');
 
-            // RELATIONSHIP ATTR
-            $table->foreignId('person_in_charge_id')->nullable()->constrained('person_in_charges')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

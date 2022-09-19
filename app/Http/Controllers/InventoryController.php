@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Inventory;
 use Illuminate\Http\Request;
 
+// BEFORE USING THIS PACKAGE. INSTALL YAJRA DATATABLES AND ADD PROVIDER AND ALIASES ON CONFIG APP
+use DataTables;
+
 class InventoryController extends Controller
 {
     /**
@@ -16,6 +19,17 @@ class InventoryController extends Controller
     {
         //
         return Inventory::all();
+    }
+
+
+    public function datatable()
+    {
+
+        $data = Inventory::all();
+        return Datatables::of($data)
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->make(true);
     }
 
     /**
@@ -47,7 +61,6 @@ class InventoryController extends Controller
         ]);
 
         return Inventory::create($request->all());
-
     }
 
     /**
@@ -84,7 +97,7 @@ class InventoryController extends Controller
     public function update(Request $request, Inventory $inventory, $id)
     {
         //
-        $inventory = Invetory::find($id);
+        $inventory = Inventory::find($id);
         $inventory->update($request->all());
 
         return $inventory;

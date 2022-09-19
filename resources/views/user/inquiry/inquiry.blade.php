@@ -12,6 +12,7 @@
 
 @section('section_header')
     <h1>{{ $page_title }}</h1>
+    <div id="tableActions"></div>
 @endsection
 
 {{-- CONTENT --}}

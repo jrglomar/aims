@@ -54,7 +54,7 @@
                         <p class="text-dark mb-4"> Assets Inventory System was developed in the Mayamot National High
                             School to speed up the counting and monitoring system. </p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                            <a class="btn btn-success btn-lg px-4 me-sm-3 mx-2" href="#features">Get Started</a>
                             <a class="btn btn-outline-light btn-lg px-4 text-dark" href="#!">Learn More</a>
                         </div>
                     </div>
@@ -70,7 +70,8 @@
                     <div class="feature bg-info bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i>
                     </div>
                     <h2 class="h4 fw-bolder">Inquiry Service</h2>
-                    <p>This feature is made for users so they can communicate with the admins and ask for the information they need. </p>
+                    <p>This feature is made for users so they can communicate with the admins and ask for the
+                        information they need. </p>
                     <a class="text-decoration-none" href="#contact">
                         View
                         <i class="bi bi-arrow-right"></i>
@@ -86,7 +87,7 @@
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
-                
+
             </div>
         </div>
     </section>
@@ -156,7 +157,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="row justify-content-center">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <!-- Testimonial 1-->
                             <img class="school-image" src="{{ asset('/images/actualFront.jpg') }}">
                         </div>
@@ -219,7 +220,7 @@
                             <div class="text-center text-danger mb-3">Error sending message!</div>
                         </div>
                         <!-- Submit Button-->
-                        <div class="d-grid">
+                        <div class="d-flex float-right">
                             <button class="btn btn-primary btn-lg" id="submitButton" type="button">Submit</button>
                         </div>
                     </form>

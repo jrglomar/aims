@@ -105,5 +105,6 @@
         });
         // login closing tag
 
+        $("#loading_cover").fadeOut();
     });
 </script>

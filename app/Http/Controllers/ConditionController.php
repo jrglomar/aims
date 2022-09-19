@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Condition;
 use Illuminate\Http\Request;
 
+// BEFORE USING THIS PACKAGE. INSTALL YAJRA DATATABLES AND ADD PROVIDER AND ALIASES ON CONFIG APP
+use DataTables;
+
 class ConditionController extends Controller
 {
     /**
@@ -18,6 +21,15 @@ class ConditionController extends Controller
         return Condition::all();
     }
 
+
+    public function datatable(){
+
+        $data = Condition::all();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->rawColumns(['action'])
+                    ->make(true);
+    }
     /**
      * Show the form for creating a new resource.
      *

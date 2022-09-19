@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Inquiry;
 use Illuminate\Http\Request;
 
+// BEFORE USING THIS PACKAGE. INSTALL YAJRA DATATABLES AND ADD PROVIDER AND ALIASES ON CONFIG APP
+use DataTables;
+
 class InquiryController extends Controller
 {
     /**
@@ -16,6 +19,16 @@ class InquiryController extends Controller
     {
         //
         return Inquiry::all();
+    }
+
+
+    public function datatable(){
+
+        $data = Inquiry::all();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->rawColumns(['action'])
+                    ->make(true);
     }
 
     /**

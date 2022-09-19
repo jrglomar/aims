@@ -11,16 +11,10 @@
                 <form id="editForm" data-parsley-validate>
                     <div class="card-body">
                         <div class="row">
-                            <div class="form-group col-md-8">
-                                <label class="required-input">Email</label>
-                                <input type="email" class="form-control" id="email_edit" name="email_edit"
-                                    placeholder="Email" tabindex="1" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label class="required-input">Role</label>
-                                <select class="form-control" id="role_edit" name="role_edit">
-                                    <option value="User">User</option>
-                                    <option value="Admin">Admin</option>
+                            <div class="form-group col-md-12">
+                                <label class="required-input">Inventory</label>
+                                <select class="form-control" id="inventory_id_edit" name="inventory_id_edit">
+
                                 </select>
                             </div>
                         </div>
@@ -32,22 +26,13 @@
                             </div>
                             {{-- <div class="form-group col-md-4">
                                 <label class="required-input">Middle Name</label>
-                                <input type="text" class="form-control" id="middle_name_edit" name="middle_name_edit"
+                                <input type="text" class="form-control" id="middle_name" name="middle_name"
                                     placeholder="Middle Name" tabindex="1">
                             </div> --}}
                             <div class="form-group col-md-6">
                                 <label class="required-input">Last Name</label>
                                 <input type="text" class="form-control" id="last_name_edit" name="last_name_edit"
                                     placeholder="Last Name" tabindex="1" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label class="required-input">Status</label>
-                                <select class="form-control" id="status_edit" name="status_edit">
-                                    <option value="Inactive">Inactive</option>
-                                    <option value="Active">Active</option>
-                                </select>
                             </div>
                         </div>
                     </div>

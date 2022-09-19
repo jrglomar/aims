@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\PersonInCharge;
 use Illuminate\Http\Request;
 
+// BEFORE USING THIS PACKAGE. INSTALL YAJRA DATATABLES AND ADD PROVIDER AND ALIASES ON CONFIG APP
+use DataTables;
 class PersonInChargeController extends Controller
 {
     /**
@@ -18,6 +20,15 @@ class PersonInChargeController extends Controller
         return PersonInCharge::all();
     }
 
+
+    public function datatable(){
+
+        $data = PersonInCharge::all();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->rawColumns(['action'])
+                    ->make(true);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +38,9 @@ class PersonInChargeController extends Controller
     {
         //
         $request->validate([
-            //
+            'first_name' => 'required',
+            'last_name' => 'required',
+            // 'inventory_id' => 'required'
         ]);
 
         return PersonInCharge::create($request->all());

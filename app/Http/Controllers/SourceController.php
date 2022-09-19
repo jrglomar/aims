@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Source;
 use Illuminate\Http\Request;
 
+// BEFORE USING THIS PACKAGE. INSTALL YAJRA DATATABLES AND ADD PROVIDER AND ALIASES ON CONFIG APP
+use DataTables;
+
 class SourceController extends Controller
 {
     /**
@@ -16,6 +19,16 @@ class SourceController extends Controller
     {
         //
         return Source::all();
+    }
+
+
+    public function datatable(){
+
+        $data = Source::all();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->rawColumns(['action'])
+                    ->make(true);
     }
 
     /**
