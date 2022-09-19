@@ -1,8 +1,8 @@
 ## System Installation
 
 # Requirements
-- PHP 7.3 up
-    https://www.php.net/downloads.php
+- XAMPP PHP 7.4 or up
+    https://www.apachefriends.org/download.html
 - Composer latest
     https://getcomposer.org/download/
 
@@ -20,7 +20,7 @@
 - generate application key
 `php artisan key:generate`
 - setup your .env file such as API_URL, APP_URL, and DB_DATABASE on my case its 
-APP_URL=http://127.0.0.1:8000
+APP_URL=
 API_URL=/api
 DB_DB_DATABASE = aims
 and the rest is default
