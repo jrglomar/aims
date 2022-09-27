@@ -26,7 +26,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="/services/dashboard" id="sidebarUserName" class="d-block"> </a>
+                <a href="{{ env('APP_URL') }}/services/dashboard" id="sidebarUserName" class="d-block"> </a>
             </div>
         </div>
 
@@ -52,7 +52,7 @@
 
                <li class="nav-header">DASHBOARD</li>
                <li class="{{ Request::segment(2) == 'dashboard' ? 'nav-item active' : 'nav-item' }}">
-                   <a href="/services/dashboard"
+                   <a href="{{ env('APP_URL') }}/services/dashboard"
                        class="{{ Request::segment(2) == 'dashboard' ? 'nav-link active' : 'nav-link' }}">
                        <i class="nav-icon fas fa-tachometer-alt"></i>
                        <p>
@@ -62,7 +62,7 @@
                </li>
                <li class="nav-header">USER MANAGEMENT</li>
                <li class="nav-item">
-                   <a href="/services/inquiry"
+                   <a href="{{ env('APP_URL') }}/services/inquiry"
                        class="{{ Request::segment(2) == 'inquiry' ? 'nav-link active' : 'nav-link' }}">
                        <i class="nav-icon fas fa-question"></i>
                        <p>
@@ -72,7 +72,7 @@
                </li>
                <li class="nav-header">EQUIPMENT MANAGEMENT</li>
                <li class="nav-item">
-                   <a href="/services/equipment"
+                   <a href="{{ env('APP_URL') }}/services/equipment"
                        class="{{ Request::segment(2) == 'equipment' ? 'nav-link active' : 'nav-link' }}">
                        <i class="nav-icon fas fa-boxes"></i>
                        <p>

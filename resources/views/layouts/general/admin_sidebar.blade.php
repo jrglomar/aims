@@ -52,7 +52,7 @@
 
                 <li class="nav-header">DASHBOARD</li>
                 <li class="{{ Request::segment(2) == 'dashboard' ? 'nav-item active' : 'nav-item' }}">
-                    <a href="/admin/dashboard"
+                    <a href="{{ env('APP_URL') }}/admin/dashboard"
                         class="{{ Request::segment(2) == 'dashboard' ? 'nav-link active' : 'nav-link' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -62,7 +62,7 @@
                 </li>
                 <li class="nav-header">USER MANAGEMENT</li>
                 <li class="nav-item">
-                    <a href="/admin/user" class="{{ Request::segment(2) == 'user' ? 'nav-link active' : 'nav-link' }}">
+                    <a href="{{ env('APP_URL') }}/admin/user" class="{{ Request::segment(2) == 'user' ? 'nav-link active' : 'nav-link' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
@@ -70,7 +70,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/inquiry"
+                    <a href="{{ env('APP_URL') }}/admin/inquiry"
                         class="{{ Request::segment(2) == 'inquiry' ? 'nav-link active' : 'nav-link' }}">
                         <i class="nav-icon fas fa-question"></i>
                         <p>
@@ -80,7 +80,7 @@
                 </li>
                 <li class="nav-header">INVENTORY MANAGEMENT</li>
                 <li class="nav-item">
-                    <a href="/admin/inventory"
+                    <a href="{{ env('APP_URL') }}/admin/inventory"
                         class="{{ Request::segment(2) == 'inventory' ? 'nav-link active' : 'nav-link' }}">
                         <i class="nav-icon fas fa-warehouse"></i>
                         <p>
@@ -89,7 +89,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/person_in_charge"
+                    <a href="{{ env('APP_URL') }}/admin/person_in_charge"
                         class="{{ Request::segment(2) == 'person_in_charge' ? 'nav-link active' : 'nav-link' }}">
                         <i class="nav-icon fas fa-user-check"></i>
                         <p>
@@ -99,7 +99,7 @@
                 </li>
                 <li class="nav-header">EQUIPMENT MANAGEMENT</li>
                 <li class="nav-item">
-                    <a href="/admin/source"
+                    <a href="{{ env('APP_URL') }}/admin/source"
                         class="{{ Request::segment(2) == 'source' ? 'nav-link active' : 'nav-link' }}">
                         <i class="nav-icon fas fa-truck-loading"></i>
                         <p>
@@ -108,7 +108,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/condition"
+                    <a href="{{ env('APP_URL') }}/admin/condition"
                         class="{{ Request::segment(2) == 'condition' ? 'nav-link active' : 'nav-link' }}">
                         <i class="nav-icon fas fa-check-double"></i>
                         <p>
@@ -117,7 +117,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/equipment"
+                    <a href="{{ env('APP_URL') }}/admin/equipment"
                         class="{{ Request::segment(2) == 'equipment' ? 'nav-link active' : 'nav-link' }}">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
