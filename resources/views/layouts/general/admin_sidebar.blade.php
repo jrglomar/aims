@@ -10,7 +10,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/admin/dashboard" class="brand-link">
+    <a href="{{ env('APP_URL') }}/admin/dashboard" class="brand-link">
 
         <img src="{{ asset('vendors/adminlte/dist/img/laravel-svg.png') }}" alt="Laravel Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">

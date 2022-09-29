@@ -51,7 +51,7 @@
                         data: "description"
                     },
                     {
-                        data: "source_id",
+                        data: "source.title",
                         render: function(data, type, row) {
                             if (data != null) {
                                 return row.source.title
@@ -59,7 +59,7 @@
                         }
                     },
                     {
-                        data: "condition_id",
+                        data: "condition.title",
                         render: function(data, type, row) {
                             if (data != null) {
                                 return row.condition.title
@@ -67,7 +67,7 @@
                         }
                     },
                     {
-                        data: "inventory_id",
+                        data: "inventory.title",
                         render: function(data, type, row) {
                             if (data != null) {
                                 return row.inventory.title
@@ -75,7 +75,7 @@
                         }
                     },
                     {
-                        data: "inventory_id",
+                        data: "inventory.location",
                         render: function(data, type, row) {
                             if (data != null) {
                                 return row.inventory.location

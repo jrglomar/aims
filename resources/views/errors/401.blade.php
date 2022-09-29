@@ -567,7 +567,7 @@
             <br>
             <div class="flex justify-content-center pt-12 sm:justify-center sm:pt-0">
                 <div class="px-12 text-lg">
-                    <button type="button" onclick="location.href='/login'"
+                    <button type="button" onclick="location.href='{{ env('APP_URL') }}/login'"
                         class="shadow-none btn btn-info btn-md btn-block" tabindex="4">
                         Back to Login <i class="fas fa-sign-in-alt"></i>
                     </button>

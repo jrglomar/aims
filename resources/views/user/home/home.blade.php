@@ -38,8 +38,8 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/services/inquiry">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ env('APP_URL') }}/services/inquiry">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ env('APP_URL') }}/logout">Logout</a></li>
                 </ul>
             </div>
         </div>

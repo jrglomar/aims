@@ -51,7 +51,7 @@
                         }
                     },
                     {
-                        data: "inventory_id",
+                        data: "inventory.title",
                         render: function(data, type, row){
                             if(data != null){
                                 return row.inventory.title
